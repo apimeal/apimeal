@@ -11,20 +11,22 @@
 namespace apimeal {
 
 class AModule {
-protected:
+public:
+	virtual ~AModule() {};
+
 	virtual std::list<eTypeModule> getType() const = 0;
 	virtual std::list<float> getPriority() const = 0;
 	virtual Version const &getVersion() const = 0;
 	virtual std::string getName() const = 0;
 
-	virtual void* preConnexion(Connexion &, Error &) { return NULL };
-	virtual void* postConnexion(Connexion &, Error &) { return NULL };
-	virtual void* preParseRequest(HttpRequest &, Error &) { return NULL };
-	virtual void* postParseRequest(HttpRequest&, Error &) { return NULL };
-	virtual void* contentModule(HttpRequest &, Error &) { return NULL };
-	virtual void* CGIModule(HttpRequest &, Error &) { return NULL };
-	virtual void* postGenerateResponse(HttpResponse &, Error &) { return NULL };
-	virtual void* preSendRequest(HttpResponse &, Error &) { return NULL };
+	virtual void preConnexion(Connexion &, Error &) { };
+	virtual void postConnexion(Connexion &, Error &) { };
+	virtual void preParseRequest(HttpRequest &, Error &) { };
+	virtual void postParseRequest(HttpRequest&, Error &) { };
+	virtual void contentModule(HttpRequest &, Error &) { };
+	virtual void CGIModule(HttpRequest &, Error &) { };
+	virtual void postGenerateResponse(HttpResponse &, Error &) { };
+	virtual void preSendRequest(HttpResponse &, Error &) { };
 
 };
 

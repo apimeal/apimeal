@@ -16,16 +16,9 @@ namespace apimeal {
 			: _major(major), _minor(minor) {
 		}
 
-		std::string getName() const {
-			std::ostringstream convertMajor;
-			std::ostringstream convertMinor;
-			convertMinor << _minor;
-			convertMajor << _major;
-			return convertMajor.str() + '.' + convertMinor.str();
-		}
-
-		int getMajor() { return _major; }
-		int getMinor() { return _minor; }
+		std::string getName() const;
+		int getMajor() const;
+		int getMinor() const;
 	};
 }
 

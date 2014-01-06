@@ -11,10 +11,10 @@ private:
 	std::string _message;
 
 public:
-	void setCode(int code) { code = _code; }
-	int getCode() const { return _code; }
-	void setMessage(std::string const &message) { _message = message; } 
-	std::string const &getMessage() const { return _message; }
+	void setCode(int code);
+	int getCode() const;
+	void setMessage(std::string const &message); 
+	std::string const &getMessage() const;
 };
 
 }

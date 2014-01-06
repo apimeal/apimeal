@@ -18,14 +18,11 @@ public:
 	{
 	}
 
-	std::string const &getHostname() { return _hostname; }
-	std::string const &getIp() { return _ip; }
-	int getPort() { return _port; }
-	std::string const &getRequest() { return _request; }
-	
-	void setRequest(std::string const &request) { _request = request; }
-	
-
+	std::string const &getHostname() const;
+	std::string const &getIp() const;
+	int getPort() const;
+	std::string const &getRequest() const;
+	void setRequest(std::string const &request);
 };
 
 }

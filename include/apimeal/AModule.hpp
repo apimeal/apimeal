@@ -17,7 +17,7 @@ public:
 	virtual std::list<eTypeModule> getType() const = 0;
 	virtual std::list<float> getPriority() const = 0;
 	virtual Version const &getVersion() const = 0;
-	virtual std::string getName() const = 0;
+	virtual std::string const &getName() const = 0;
 
 	virtual void preConnexion(Connexion &, Error &) { };
 	virtual void postConnexion(Connexion &, Error &) { };

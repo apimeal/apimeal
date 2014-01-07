@@ -1,4 +1,9 @@
+#if defined (_WIN32)
+#include <windows.h>
+#else
 #include <dlfcn.h>
+#endif
+
 #include <iostream>
 #include "apimeal/AModule.hpp"
 #include "Logger.hpp"
@@ -6,20 +11,56 @@
 using namespace std;
 
 
-/**
-* EXEMPLE : Seulement compatible linux
-*/
+apimeal::AModule *Load(Logger *log, char **argv);
+
 int main(int argc, char **argv)
 {
   if (argc != 2) {
 	cerr << "no lib" << endl;
 	return 1;
   }
+
+  Logger *log = new Logger();
+
+  apimeal::AModule *mod = Load(log, argv);
+  if (mod == NULL)
+    return 1;
+
+  std::cout << mod->getVersion().Minor << std::endl;
+
+  return 0;
+}
+
+
+#if defined (_WIN32)
+
+//WINDOWS MODE
+apimeal::AModule *Load(Logger *log, char **argv) {
+
+  HMODULE library = LoadLibrary("SDL.dll");
+  if (library == NULL) {
+      cerr << "Cannot open library" << endl;
+      return NULL;
+  } 
   
+  FARPROC initializer = GetProcAddress(library,"LoadModule");
+  if (initializer == NULL) {
+       cerr << "Cannot load symbol 'LoadModule'" << endl;
+       FreeLibrary(library);
+  }
+
+  return create(log);
+}
+
+#else
+//LINUX MODE
+apimeal::AModule *Load(Logger *log, char **argv) 
+{
+
   void* handle = dlopen(argv[1], RTLD_LAZY);
   if (!handle) {
-      cerr << "Cannot open library: " << dlerror() << '\n';
-      return 1;
+      cerr << "Cannot open library: " << dlerror() << endl;
+      return NULL;
   }
 
   apimeal::AModule* (*create)(apimeal::ILogger *);
@@ -27,15 +68,11 @@ int main(int argc, char **argv)
 
   const char *dlsym_error = dlerror();
   if (dlsym_error) {
-     cerr << "Cannot load symbol 'LoadModule': " << dlsym_error << std::endl;
+     cerr << "Cannot load symbol 'LoadModule': " << dlsym_error << endl;
      dlclose(handle);
-     return 1;
+     return NULL;
   }
 
-
-  Logger *log = new Logger();
-  std::cout << create(log)->getVersion().Minor << std::endl;
-
-  return 0;
+  return create(log);
 }
-
+#endif

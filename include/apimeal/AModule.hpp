@@ -41,7 +41,7 @@ public:
 }
 
 #if defined (_WIN32)
-#if defined(DllApimeal _EXPORTS)
+#if defined(DllApimeal)
 #define DLLAPIMEAL __declspec(dllexport)
 #else
 #define DLLAPIMEAL __declspec(dllimport)
@@ -51,7 +51,7 @@ public:
 #endif
 
 extern "C" {
-  apimeal::AModule * DLLAPIMEAL LoadModule(apimeal::ILogger *);
+  DLLAPIMEAL apimeal::AModule *LoadModule(apimeal::ILogger *);
 }
 
 

@@ -12,7 +12,8 @@ using namespace std;
 int main(int argc, char **argv)
 {
   if (argc != 2) {
-	cerr << "no lib" << endl;   
+	cerr << "no lib" << endl;
+	return 1;
   }
   
   void* handle = dlopen(argv[1], RTLD_LAZY);

@@ -28,6 +28,8 @@ int main(int argc, char **argv)
 
   std::cout << mod->getVersion().Minor << std::endl;
 
+  mod->release();
+
   return 0;
 }
 

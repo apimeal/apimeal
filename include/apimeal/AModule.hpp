@@ -104,6 +104,10 @@ public:
 	*/
 	virtual void preSendRequest(IHttpResponse *, Error &) { };
 
+	/**
+	* \brief Free memory
+	*/
+	virtual void release() { delete this; }
 };
 
 }

@@ -5,7 +5,13 @@
 #include <sstream> 
 
 namespace apimeal {
-
+/**
+ * \struct Version
+ * \brief Set the slice versions compatible with the module
+ * 
+ * \param int max
+ * \param int min
+ */
 	struct Version
 	 {
 	 public:

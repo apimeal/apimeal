@@ -12,7 +12,7 @@ namespace apimeal {
 	class IHttpRequest : public IRequest {
 	public:
 	/**
-	 * /brief Destructor
+	 * \brief Destructor
 	 */
 	virtual ~IHttpRequest() {}
 	/**

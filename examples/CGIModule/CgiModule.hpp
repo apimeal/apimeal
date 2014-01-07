@@ -2,14 +2,12 @@
 #define APIMEALEXAMPLE_CGIMODULE_HPP
 
 #include "apimeal/AModule.hpp"
-#include "apimeal/Version.hpp"
 
 class CgiModule : public apimeal::AModule {
 public:
 	CgiModule(apimeal::ILogger *);
 
-	std::list<apimeal::eTypeModule> getType() const;
-	std::list<apimeal::ePriority> getPriority() const;
+	std::map<apimeal::eTypeModule, apimeal::ePriority> getPriority() const;
 	apimeal::Version const &getVersion() const;
 	std::string const &getName() const;
 

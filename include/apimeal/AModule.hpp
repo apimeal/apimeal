@@ -1,7 +1,7 @@
 #ifndef APIMEAL_AMODULE_HPP
 #define APIMEAL_AMODULE_HPP
 
-#include <list>
+#include <map>
 #include "Version.hpp"
 #include "eTypeModule.hpp"
 #include "ePriority.hpp"
@@ -23,8 +23,7 @@ public:
 	 {}
 	virtual ~AModule() {}
 
-	virtual std::list<eTypeModule> getType() const = 0;
-	virtual std::list<ePriority> getPriority() const = 0;
+	virtual std::map<eTypeModule, ePriority> getPriority() const = 0;
 	virtual Version const &getVersion() const = 0;
 	virtual std::string const &getName() const = 0;
 
@@ -41,8 +40,18 @@ public:
 
 }
 
+#if defined (_WIN32)
+#if defined(DllApimeal _EXPORTS)
+#define DLLAPIMEAL __declspec(dllexport)
+#else
+#define DLLAPIMEAL __declspec(dllimport)
+#endif
+#else
+#define DLLAPIMEAL
+#endif
+
 extern "C" {
-		apimeal::AModule *LoadModule(apimeal::ILogger *);
+  apimeal::AModule * DLLAPIMEAL LoadModule(apimeal::ILogger *);
 }
 
 

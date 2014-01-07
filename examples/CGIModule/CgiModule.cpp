@@ -15,7 +15,7 @@ std::list<apimeal::eTypeModule> CgiModule::getType() const {
 	return list;
 }
 
-std::list<float> CgiModule::getPriority() const {
+std::list<apimeal:ePriority> CgiModule::getPriority() const {
 	std::list<apimeal::eTypeModule> list;
 	// on definie une priorité de 0.5 pour notre module
 	list.push_back(0.5f);
@@ -30,11 +30,11 @@ std::string const &CgiModule::getName() const {
 	return _name;
 }
 
-void CgiModule::CGIModule(HttpRequest &request, Error &error) {
+void CgiModule::CGIModule(HttpRequest *request, Error &error) {
 
 	// On recupere le contenu de notre fichier qu'on va 
 	// envoyer a notre module CGI
-	std::string &body = request.getBody();
+	std::string &body = request->getBody();
 
 	std::string result;
 	// TODO: Le module CGI prends en charge le body
@@ -42,8 +42,9 @@ void CgiModule::CGIModule(HttpRequest &request, Error &error) {
 
 	// Si result == "" on concidère qu'il y'a une erreur 404
 	if (result == "") {
-		error.setCode(404);
-		error.SetMessage("La page est vide donc introuvable à nos yeux");
+		error.Error(true);
+		error.Code(404);
+		error.Message("La page est vide donc introuvable à nos yeux");
 		return;
 	}
 

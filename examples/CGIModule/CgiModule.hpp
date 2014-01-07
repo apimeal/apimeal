@@ -9,11 +9,11 @@ public:
 	CgiModule();
 
 	std::list<apimeal::eTypeModule> getType() const;
-	std::list<float> getPriority() const;
+	std::list<apimeal::ePriority> getPriority() const;
 	Version const &getVersion() const;
 	std::string getName() const;
 
-	void CGIModule(HttpRequest &, Error &);
+	void CGIModule(HttpRequest *, Error &);
 private:
 	Version _version;
 	std::string _name;

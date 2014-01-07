@@ -37,14 +37,15 @@ int main(int argc, char **argv)
 //WINDOWS MODE
 apimeal::AModule *Load(Logger *log, char **argv) {
 
-  HMODULE library = LoadLibrary("SDL.dll");
+  HMODULE library = LoadLibrary(argv[1]);
   if (library == NULL) {
       cerr << "Cannot open library" << endl;
       return NULL;
   } 
-  
-  FARPROC initializer = GetProcAddress(library,"LoadModule");
-  if (initializer == NULL) {
+
+  apimeal::AModule* (*create)(apimeal::ILogger *);
+  create = apimeal::AModule* (*)(apimeal::ILogger *))GetProcAddress(library,"LoadModule");
+  if (create == NULL) {
        cerr << "Cannot load symbol 'LoadModule'" << endl;
        FreeLibrary(library);
   }

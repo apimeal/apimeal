@@ -1,11 +1,11 @@
-#ifndef APIMEAL_HTTPREQUEST_HPP
-#define APIMEAL_HTTPREQUEST_HPP
+#ifndef APIMEAL_IHTTPREQUEST_HPP
+#define APIMEAL_IHTTPREQUEST_HPP
 
-#include "Request.hpp"
+#include "IRequest.hpp"
 
 namespace apimeal {
 
-	class HttpRequest : public Request {
+	class IHttpRequest : public IRequest {
 	private:
 		std::string _method;
 		std::string _requestURI;

@@ -5,16 +5,15 @@
 
 namespace apimeal {
 
-class Error {
-private:
-	int _code;
-	std::string _message;
-
+struct Error {
 public:
-	void setCode(int code);
-	int getCode() const;
-	void setMessage(std::string const &message); 
-	std::string const &getMessage() const;
+	Error()
+		: Error(false), Code(0), Message("")
+	 {}
+
+	bool Error
+	int Code;
+	std::string Message;
 };
 
 }

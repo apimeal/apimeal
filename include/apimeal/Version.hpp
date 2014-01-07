@@ -6,20 +6,13 @@
 
 namespace apimeal {
 
-	class Version {
-	private:
-		int _major;
-		int _minor;
-
-	public:
-		Version(major = 0, minor = 0)
-			: _major(major), _minor(minor) {
-		}
-
-		std::string getName() const;
-		int getMajor() const;
-		int getMinor() const;
-	};
+	struct Version
+	 {
+	 public:
+		int Major;
+		int Minor;
+	 };
+	
 }
 
 #endif

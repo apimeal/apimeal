@@ -30,7 +30,7 @@ std::string const &CgiModule::getName() const {
 	return _name;
 }
 
-void CgiModule::CGIModule(HttpRequest *request, Error &error) {
+void CgiModule::CGIModule(IHttpRequest *request, Error &error) {
 
 	// On recupere le contenu de notre fichier qu'on va 
 	// envoyer a notre module CGI

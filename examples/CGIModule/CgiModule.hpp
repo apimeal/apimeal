@@ -13,7 +13,7 @@ public:
 	Version const &getVersion() const;
 	std::string getName() const;
 
-	void CGIModule(HttpRequest *, Error &);
+	void CGIModule(IHttpRequest *, Error &);
 private:
 	Version _version;
 	std::string _name;

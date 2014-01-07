@@ -5,7 +5,8 @@
 
 namespace apimeal {
 /**
- * \class ILogger : class for logger
+ * \class ILogger
+ * \brief class for logger
  */
 	class ILogger {
 	public:

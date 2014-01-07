@@ -5,6 +5,13 @@
 
 namespace apimeal {
 
+/**
+ * \struct Error
+ * \brief Struct for error handling
+ * bool IsError (true if there was an error)
+ * int Code (error code)
+ * std::string Message (Message print)
+ */
 struct Error {
 public:
 	Error()

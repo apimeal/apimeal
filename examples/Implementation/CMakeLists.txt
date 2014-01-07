@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.6)
+project(implementation)
+set(CMAKE_BUILD_TYPE Release)
+set(SRC main.cpp Logger.cpp)
+add_executable(implement ${SRC})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../include)
+target_link_libraries(implement dl)

@@ -6,20 +6,15 @@ CgiModule::CgiModule()
 
 }
 
-std::list<apimeal::eTypeModule> CgiModule::getType() const {
-	// création d'une liste qui contiendra
+std::map<apimeal::eTypeModule, apimeal::ePriority> CgiModule::getPriority() const {
+	// création d'une map qui contiendra
 	// notre point d'insertion pour l'api
-	std::list<apimeal::eTypeModule> list;
+	
+	std::map<apimeal::eTypeModule, apimeal::ePriority> map;
 	// on ajoute dans notre liste le CGIMODULE pour pouvoir l'utiliser
-	list.push_back(apimeal::CGIMODULE);
-	return list;
-}
-
-std::list<apimeal::ePriority> CgiModule::getPriority() const {
-	std::list<apimeal::ePriority> list;
-	// on definie une priorité de 0.5 pour notre module
-	list.push_back(0.5f);
-	return list;
+    // ainsi qu'une piorité de 0.42 pour notre module
+	map[apimeal::CGIMODULE] = 0.42f;
+	return map;
 }
 
 apimeal::Version const &CgiModule::getVersion() const {

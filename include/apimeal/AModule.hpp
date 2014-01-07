@@ -68,38 +68,38 @@ public:
 	*/
 	virtual void postConnexion(IConnexion *, Error &) { };
 	/**
-	* \brief Before parsing a request
-	* \param IHttpRequest : Class for manage a request
+	* \brief Before parsing a query
+	* \param IHttpRequest : Class for manage a query
 	* \param Error : Class for manage an error
 	*/
 	virtual void preParseRequest(IHttpRequest *, Error &) { };
 	/**
 	* \brief After parsing a request
-	* \param IHttpRequest : Class for manage a request
+	* \param IHttpRequest : Class for manage a query
 	* \param Error : Class for manage an error
 	*/
 	virtual void postParseRequest(IHttpRequest *, Error &) { };
 	/**
 	* \brief Get body of the request
-	* \param IHttpRequest : Class for manage a request
+	* \param IHttpRequest : Class for manage a query
 	* \param Error : Class for manage an error
 	*/
 	virtual void contentModule(IHttpRequest *, Error &) { };
 	/**
 	* \brief Manage of Common Gateway Interface
-	* \param IHttpRequest : Class for manage a request
+	* \param IHttpRequest : Class for manage a query
 	* \param Error : Class for manage an error
 	*/
 	virtual void CGIModule(IHttpRequest *, Error &) { };
 	/**
 	* \brief After generation of the response
-	* \param IHttpResponse : Class with the response of the request
+	* \param IHttpResponse : Class with the query response
 	* \param Error : Class for manage an error
 	*/
 	virtual void postGenerateResponse(IHttpResponse *, Error &) { };
 	/**
 	* \brief Before sending the response
-	* \param IHttpResponse : Class with the response of the request
+	* \param IHttpResponse : Class with the query response
 	* \param Error : Class for manage an error
 	*/
 	virtual void preSendRequest(IHttpResponse *, Error &) { };

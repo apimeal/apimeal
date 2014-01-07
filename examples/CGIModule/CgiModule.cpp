@@ -70,7 +70,7 @@ void CgiModule::CGIModule(apimeal::IHttpRequest *request, apimeal::Error &error)
 	return;
 }
 
-extern "C" apimeal::AModule *LoadModule() {
+extern "C" DLLAPIMEAL apimeal::AModule *LoadModule() {
 		return new CgiModule();
 	}
 

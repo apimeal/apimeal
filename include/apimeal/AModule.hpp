@@ -34,8 +34,18 @@ public:
 
 }
 
+#if defined (_WIN32)
+#if defined(DllApimeal _EXPORTS)
+#define DLLAPIMEAL __declspec(dllexport)
+#else
+#define DLLAPIMEAL __declspec(dllimport)
+#endif
+#else
+#define DLLAPIMEAL
+#endif
+
 extern "C" {
-		apimeal::AModule *LoadModule();
+  apimeal::AModule * DLLAPIMEAL LoadModule();
 }
 
 

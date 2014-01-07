@@ -50,10 +50,4 @@ public:
 #define DLLAPIMEAL
 #endif
 
-extern "C" {
-  DLLAPIMEAL apimeal::AModule *LoadModule(apimeal::ILogger *);
-}
-
-
-
 #endif

@@ -1,7 +1,7 @@
 #include "CgiModule.hpp"
 
-CgiModule::CgiModule()
- : _version(0,1), _name("CgiModule")
+CgiModule::CgiModule(apimeal::ILogger *log)
+ : AModule(log), _version(0,1), _name("CgiModule")
 {
 
 }
@@ -70,7 +70,7 @@ void CgiModule::CGIModule(apimeal::IHttpRequest *request, apimeal::Error &error)
 	return;
 }
 
-extern "C" apimeal::AModule *LoadModule() {
-		return new CgiModule();
-	}
+extern "C" apimeal::AModule *LoadModule(apimeal::ILogger *log) {
+		return new CgiModule(log);
+}
 

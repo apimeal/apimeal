@@ -1,6 +1,7 @@
 #include <dlfcn.h>
 #include <iostream>
 #include "apimeal/AModule.hpp"
+#include "Logger.hpp"
 
 using namespace std;
 
@@ -20,8 +21,8 @@ int main(int argc, char **argv)
       return 1;
   }
 
-  apimeal::AModule* (*create)();
-  create = (apimeal::AModule* (*)())dlsym(handle, "LoadModule");
+  apimeal::AModule* (*create)(apimeal::ILogger *);
+  create = (apimeal::AModule* (*)(apimeal::ILogger *))dlsym(handle, "LoadModule");
 
   const char *dlsym_error = dlerror();
   if (dlsym_error) {
@@ -30,7 +31,9 @@ int main(int argc, char **argv)
      return 1;
   }
 
-  std::cout << create()->getVersion().Minor << std::endl;
+
+  Logger *log = new Logger();
+  std::cout << create(log)->getVersion().Minor << std::endl;
 
   return 0;
 }

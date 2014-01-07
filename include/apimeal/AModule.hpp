@@ -9,12 +9,19 @@
 #include "IHttpRequest.hpp"
 #include "IHttpResponse.hpp"
 #include "Error.hpp"
+#include "ILogger.hpp"
 
 namespace apimeal {
 
 class AModule {
+protected:
+	ILogger *_logger;
+
 public:
-	virtual ~AModule() {};
+	AModule(ILogger *log)
+		: _logger(log)
+	 {}
+	virtual ~AModule() {}
 
 	virtual std::list<eTypeModule> getType() const = 0;
 	virtual std::list<ePriority> getPriority() const = 0;
@@ -35,7 +42,7 @@ public:
 }
 
 extern "C" {
-		apimeal::AModule *LoadModule();
+		apimeal::AModule *LoadModule(apimeal::ILogger *);
 }
 
 

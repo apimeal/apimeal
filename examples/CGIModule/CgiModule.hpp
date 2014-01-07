@@ -6,7 +6,7 @@
 
 class CgiModule : public apimeal::AModule {
 public:
-	CgiModule();
+	CgiModule(apimeal::ILogger *);
 
 	std::list<apimeal::eTypeModule> getType() const;
 	std::list<apimeal::ePriority> getPriority() const;

@@ -9,6 +9,8 @@ namespace apimeal {
 	struct Version
 	 {
 	 public:
+		Version(int ma, int mi)
+			: Major(ma), Minor(mi) {}
 		int Major;
 		int Minor;
 	 };

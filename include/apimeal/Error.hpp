@@ -8,10 +8,10 @@ namespace apimeal {
 struct Error {
 public:
 	Error()
-		: Error(false), Code(0), Message("")
+		: IsError(false), Code(0), Message("")
 	 {}
 
-	bool Error
+	bool IsError;
 	int Code;
 	std::string Message;
 };

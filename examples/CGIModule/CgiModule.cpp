@@ -1,7 +1,7 @@
 #include "CgiModule.hpp"
 
 CgiModule::CgiModule()
- _version(0,1), _name("CgiModule")
+ : _version(0,1), _name("CgiModule")
 {
 
 }
@@ -15,14 +15,14 @@ std::list<apimeal::eTypeModule> CgiModule::getType() const {
 	return list;
 }
 
-std::list<apimeal:ePriority> CgiModule::getPriority() const {
-	std::list<apimeal::eTypeModule> list;
+std::list<apimeal::ePriority> CgiModule::getPriority() const {
+	std::list<apimeal::ePriority> list;
 	// on definie une priorité de 0.5 pour notre module
 	list.push_back(0.5f);
 	return list;
 }
 
-Version const &CgiModule::getVersion() const {
+apimeal::Version const &CgiModule::getVersion() const {
 	return _version;
 }
 
@@ -30,11 +30,11 @@ std::string const &CgiModule::getName() const {
 	return _name;
 }
 
-void CgiModule::CGIModule(IHttpRequest *request, Error &error) {
+void CgiModule::CGIModule(apimeal::IHttpRequest *request, apimeal::Error &error) {
 
 	// On recupere le contenu de notre fichier qu'on va 
 	// envoyer a notre module CGI
-	std::string &body = request->getBody();
+	std::string body = request->getBody();
 
 	std::string result;
 	// TODO: Le module CGI prends en charge le body
@@ -42,9 +42,9 @@ void CgiModule::CGIModule(IHttpRequest *request, Error &error) {
 
 	// Si result == "" on concidère qu'il y'a une erreur 404
 	if (result == "") {
-		error.Error(true);
-		error.Code(404);
-		error.Message("La page est vide donc introuvable à nos yeux");
+		error.IsError = true;
+		error.Code = 404;
+		error.Message = "La page est vide donc introuvable à nos yeux";
 		return;
 	}
 

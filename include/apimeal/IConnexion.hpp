@@ -7,7 +7,7 @@ namespace apimeal {
 
 class IConnexion {
 public:
-	virtual ~Connexion() {}
+	virtual ~IConnexion() {}
 	virtual std::string const &getHostname() const = 0;
 	virtual std::string const &getIp() const = 0;
 	virtual int getPort() const = 0;

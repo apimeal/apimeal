@@ -1,5 +1,5 @@
-#ifndef APIMEAL_AMODULE_HPP
-#define APIMEAL_AMODULE_HPP
+#ifndef APIMEAL_EPRIOTITY_HPP
+#define APIMEAL_EPRIOTITY_HPP
 
 namespace apimeal {
 

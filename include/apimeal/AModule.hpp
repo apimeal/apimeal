@@ -1,12 +1,14 @@
 #ifndef APIMEAL_AMODULE_HPP
 #define APIMEAL_AMODULE_HPP
 
+#include <list>
 #include "Version.hpp"
 #include "eTypeModule.hpp"
 #include "ePriority.hpp"
 #include "IConnexion.hpp"
 #include "IHttpRequest.hpp"
 #include "IHttpResponse.hpp"
+#include "Error.hpp"
 
 namespace apimeal {
 

@@ -13,7 +13,7 @@ enum eTypeModule {
 	CGIMODULE,
 	POSTGENERATERESPONSE,
 	SENDREQUEST
-}
+};
 
 }
 

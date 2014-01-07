@@ -5,16 +5,36 @@
 
 namespace apimeal {
 
+/**
+ * \class IHttpRequest
+ * \brief class for managing request
+ */
 	class IHttpRequest : public IRequest {
-	private:
-		std::string _method;
-		std::string _requestURI;
-
 	public:
-		void setMethod(std::string const &);
-		std::string const &getMethod() const;
-		void setRequestURI(std::string const &);
-		std::string const &getRequestURI() const;
+	/**
+	 * /brief Destructor
+	 */
+	virtual ~IHttpRequest() {}
+	/**
+	 * \brief Setter for _method
+	 * \param std::string const & method
+	 */
+		virtual void setMethod(std::string const &) = 0;
+		/**
+		 * \brief Getter for _method
+		 * \return std::string const & : method
+		 */
+		virtual std::string const &getMethod() const = 0;
+		/**
+		 * \brief Setter for _requestURI
+		 * \param std::string const & requestURI
+		 */
+		virtual void setRequestURI(std::string const &) = 0;
+		/**
+		 * \brief Getter for _requestURI
+		 * \return std::string const & : requestURI
+		 */
+		virtual std::string const &getRequestURI() const = 0;
 	};
 }
 

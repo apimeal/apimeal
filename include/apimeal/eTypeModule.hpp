@@ -3,6 +3,10 @@
 
 namespace apimeal {
 
+/**
+ * \enum eTypeModule
+ * \brief Module type
+ */
 enum eTypeModule {
 
 	PRECONNEXION,

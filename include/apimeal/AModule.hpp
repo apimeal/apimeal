@@ -32,7 +32,12 @@ public:
 
 };
 
-
 }
+
+extern "C" {
+		apimeal::AModule *LoadModule();
+}
+
+
 
 #endif

@@ -3,6 +3,15 @@
 
 #include <string>
 
+#ifdef WIN32 
+#include <winsock2.h> 
+#elif defined (linux) 
+typedef int SOCKET;
+#else
+#error not defined for this platform
+#endif
+
+
 namespace apimeal {
 
 /**
@@ -41,6 +50,19 @@ public:
 	 * \return void
 	 */
 	virtual void setRequest(std::string const &request) = 0;
+
+	/**
+	 * \brief set the socket
+	 * \param SOCKET : The socket
+	 * \return void
+	 */
+	virtual void setSocket(SOCKET) = 0;
+
+	/**
+         * \brief get the socket 
+	 * \return SOCKET: the socket
+	 */
+	virtual SOCKET getSocket() = 0;
 };
 
 }

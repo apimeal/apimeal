@@ -87,10 +87,10 @@ public:
 	virtual void contentModule(IHttpRequest *, Error &) { };
 	/**
 	* \brief Manage of Common Gateway Interface
-	* \param IHttpRequest : Class for manage a query
+	* \param IHttpResponse : Class for manage a query
 	* \param Error : Class for manage an error
 	*/
-	virtual void CGIModule(IHttpRequest *, Error &) { };
+	virtual void CGIModule(IHttpResponse *, Error &) { };
 	/**
 	* \brief After generation of the response
 	* \param IHttpResponse : Class with the query response
@@ -100,9 +100,10 @@ public:
 	/**
 	* \brief Before sending the response
 	* \param IHttpResponse : Class with the query response
+	* \param IConnexion : Class with the query response
 	* \param Error : Class for manage an error
 	*/
-	virtual void preSendRequest(IHttpResponse *, Error &) { };
+	virtual void preSendRequest(IHttpResponse *, IConnexion * , Error &) { };
 
 	/**
 	* \brief Free memory

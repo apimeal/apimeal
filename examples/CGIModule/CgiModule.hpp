@@ -11,7 +11,7 @@ public:
 	apimeal::Version const &getVersion() const;
 	std::string const &getName() const;
 
-	void CGIModule(apimeal::IHttpRequest *, apimeal::Error &);
+	void CGIModule(apimeal::IHttpResponse *, apimeal::Error &);
 private:
 	apimeal::Version _version;
 	std::string _name;

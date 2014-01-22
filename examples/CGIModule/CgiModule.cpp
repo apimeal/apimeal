@@ -25,11 +25,11 @@ std::string const &CgiModule::getName() const {
 	return _name;
 }
 
-void CgiModule::CGIModule(apimeal::IHttpRequest *request, apimeal::Error &error) {
+void CgiModule::CGIModule(apimeal::IHttpResponse *response, apimeal::Error &error) {
 
 	// On recupere le contenu de notre fichier qu'on va 
 	// envoyer a notre module CGI
-	std::string body = request->getBody();
+	std::string body = response->getBody();
 
 	std::string result;
 	// TODO: Le module CGI prends en charge le body
@@ -58,7 +58,7 @@ void CgiModule::CGIModule(apimeal::IHttpRequest *request, apimeal::Error &error)
 	*    </body>
 	* </html>
 	*/
-	request->setBody(result);
+	response->setBody(result);
 
 	// INFO : c'est le kernel du zia qui se charge de parser les headers
 
